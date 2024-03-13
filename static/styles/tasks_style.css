@@ -1,0 +1,66 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fad961;
+    background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px; /* Add spacing below heading */
+  }
+  
+  .task-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .task-list li {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .task-list li:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .task-item h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2em; /* Increase font size for better readability */
+  }
+  
+  .task-item p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9em; /* Adjust font size */
+  }
+  
+  .task-item strong {
+    font-weight: bold;
+  }
+  
+  .task-item a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .task-item a:hover {
+    text-decoration: underline;
+  }
+  
