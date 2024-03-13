@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>itsLearning Project</title>
+    <link
+      href="{{ url_for('static', filename='styles/index_style.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome to <span style="color: #f47a1a">itsLearning</span> Tasks</h2>
+      <p class="subtext">
+        Access your itsLearning tasks by entering your credentials below:
+      </p>
+      <form action="/login" method="post">
+        <input type="text" name="email" placeholder="Enter your email" />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+        />
+        <select name="organization_name">
+          <option value="Bahcesehir Ugur Educational Institutions">
+            Bahcesehir Ugur Educational Institutions
+          </option>
+          <option value="Harrastusten Vantaa">Harrastusten Vantaa</option>
+        </select>
+        <input type="submit" />
+      </form>
+    </div>
+
+    <div class="github-profile">
+      <div
+        class="github-card"
+        data-github="emircancakmakk"
+        data-width="400"
+        data-height="150"
+        data-theme="default"
+      ></div>
+      <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    </div>
+  </body>
+</html>

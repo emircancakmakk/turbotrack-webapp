@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Tasks</title>
+    <link href="{{ url_for('static', filename='styles/tasks_style.css') }}" rel="stylesheet">
+    <script>
+    function formatDate(dateString) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+      return new Date(dateString).toLocaleDateString('en-US', options);
+    }
+  </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Tasks</h1>
+        <ul class="task-list">
+            {% for task in taskList %}
+                <li>
+                    <div class="task-item">
+                        <h2>{{ task.name }}</h2>
+                        <p><strong>Course:</strong> {{ task.course_name }}</p>
+                        <p><strong>Status:</strong> {{ task.status }}</p>
+                        {% if task.deadline %}
+                            <p><strong>Deadline:</strong> <span class="deadline">{{ task.deadline }}</span></p>
+                        {% endif %}
+                        {% if task.description %}
+                            <p><strong>Description:</strong> {{ task.description }}</p>
+                        {% endif %}
+                        <p><a href="{{ task.url }}" target="_blank">View Task</a></p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+    const dateElements = document.querySelectorAll('.deadline');
+    dateElements.forEach(element => {
+      const dateString = element.textContent;
+      element.textContent = formatDate(dateString);
+    });
+  </script>
+</body>
+</html>
