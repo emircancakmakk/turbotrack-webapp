@@ -16,7 +16,6 @@ async def loginIntoItsLearning(email, password, organization_name) -> UserServic
     except Exception as e:
         raise Exception("Failed to login to itsLearning: " + str(e))
 
-
 async def get_authenticated_user():
     if 'email' in session and 'password' in session and 'organization_name' in session:
         email = session['email']
@@ -31,7 +30,7 @@ async def get_authenticated_user():
 def index():
     return render_template('index.html')
 
-@app.route('/get_tasks', methods=['GET'])
+@app.route('/tasks', methods=['GET'])
 async def get_tasks():
     try:
         userService = await get_authenticated_user()
