@@ -55,6 +55,11 @@ async def login():
     except ValueError as e:
         return redirect(url_for('error', message=str(e)))
 
+@app.route('/logout', methods=['GET'])
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
 @app.route('/error')
 def error():
     message = request.args.get('message', 'An error occurred.')

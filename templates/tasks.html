@@ -1,45 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Tasks</title>
-    <link href="{{ url_for('static', filename='styles/tasks_style.css') }}" rel="stylesheet">
+    <link
+      href="{{ url_for('static', filename='styles/tasks_style.css') }}"
+      rel="stylesheet"
+    />
     <script>
-    function formatDate(dateString) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-      return new Date(dateString).toLocaleDateString('en-US', options);
-    }
-  </script>
-</head>
-<body>
+      function formatDate(dateString) {
+        const options = {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+        };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+      }
+
+      function addToCalendar(taskName, deadline) {
+        // Convert deadline to the correct datetime format expected by the backend
+        const deadlineDatetime = new Date(deadline);
+        const deadlineISO = deadlineDatetime.toISOString();
+
+        fetch('/add_to_calendar', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            taskName: taskName,
+            deadline: deadlineISO, // Send the deadline in ISO format
+          }),
+        })
+          .then((response) => {
+            if (response.ok) {
+              alert('Task added to Google Calendar successfully!');
+            } else {
+              alert('Failed to add task to Google Calendar.');
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+            alert('Failed to add task to Google Calendar.');
+          });
+      }
+    </script>
+  </head>
+  <body>
     <div class="container">
-        <h1>Your Tasks</h1>
-        <ul class="task-list">
-            {% for task in taskList %}
-                <li>
-                    <div class="task-item">
-                        <h2>{{ task.name }}</h2>
-                        <p><strong>Course:</strong> {{ task.course_name }}</p>
-                        <p><strong>Status:</strong> {{ task.status }}</p>
-                        {% if task.deadline %}
-                            <p><strong>Deadline:</strong> <span class="deadline">{{ task.deadline }}</span></p>
-                        {% endif %}
-                        {% if task.description %}
-                            <p><strong>Description:</strong> {{ task.description }}</p>
-                        {% endif %}
-                        <p><a href="{{ task.url }}" target="_blank">View Task</a></p>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
+      <div class="logout-btn-container">
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+      </div>
+      <h1>Your Tasks</h1>
+      <ul class="task-list">
+        {% for task in taskList %}
+        <li>
+          <div class="task-item">
+            <h2>{{ task.name }}</h2>
+            <p><strong>Course:</strong> {{ task.course_name }}</p>
+            <p><strong>Status:</strong> {{ task.status }}</p>
+            {% if task.deadline %}
+            <p>
+              <strong>Deadline:</strong>
+              <span class="deadline">{{ task.deadline }}</span>
+            </p>
+            {% endif %} {% if task.description %}
+            <p><strong>Description:</strong> {{ task.description }}</p>
+            {% endif %}
+            <p><a href="{{ task.url }}" target="_blank">View Task</a></p>
+            <p style="position: relative">
+              <!-- Ensure proper positioning context for the button -->
+              <button
+                class="add-to-calendar-btn"
+                onclick="addToCalendar('{{ task.name }}', '{{ task.deadline }}')"
+              >
+                Add to Google Calendar
+              </button>
+            </p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
     <script>
-    const dateElements = document.querySelectorAll('.deadline');
-    dateElements.forEach(element => {
-      const dateString = element.textContent;
-      element.textContent = formatDate(dateString);
-    });
-  </script>
-</body>
+      const dateElements = document.querySelectorAll('.deadline');
+      dateElements.forEach((element) => {
+        const dateString = element.textContent;
+        element.textContent = formatDate(dateString);
+      });
+    </script>
+  </body>
 </html>
