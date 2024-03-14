@@ -1,35 +1,76 @@
+/* Global Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #fad961;
-  background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Main Content */
+main {
+  height: 200vh; /* Adjusted height to fill the screen */
+  width: 100%;
+  overflow: hidden; /* Hide overflow to prevent scrolling beyond the main content */
+  position: relative;
+}
+
+/* Sections */
+section {
+  height: 100vh; /* Adjusted height to fill the screen */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  position: relative;
 }
 
-h2 {
+/* Slogan Container */
+.slogan-container {
   text-align: center;
+  background-color: #fff;
 }
 
-.container {
-  position: relative; /* Added for positioning the button */
-  width: 400px;
+.slogan-container h3 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #000;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-section {
+  background-color: #fff;
+}
+
+/* Form Styles */
+.form-container {
+  width: 80%;
+  max-width: 400px;
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.subtext {
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 input[type='text'],
@@ -40,7 +81,6 @@ select {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  transition: border-color 0.3s ease;
 }
 
 input[type='text']:focus,
@@ -58,13 +98,13 @@ input[type='submit'] {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 input[type='submit']:hover {
   background: linear-gradient(to right, #ffcd73, #f47a1a);
 }
 
+/* Social Buttons */
 .github-profile {
   position: absolute;
   top: 20px;
@@ -79,9 +119,45 @@ input[type='submit']:hover {
   z-index: 1000;
 }
 
-@media (max-width: 600px) {
-  .github-profile {
-    bottom: 10px;
-    right: 10px;
-  }
+.custom-shape-divider-top-1710440358 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1710440358 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 286px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1710440358 .shape-fill {
+  fill: #ee7205;
+}
+
+.custom-shape-divider-bottom-1710440684 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1710440684 svg {
+  position: relative;
+  display: block;
+  width: calc(105% + 1.3px);
+  height: 109px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1710440684 .shape-fill {
+  fill: #ee7205;
 }
