@@ -8,15 +8,18 @@ body {
 
 /* Main Content */
 main {
-  height: 200vh; /* Adjusted height to fill the screen */
+  height: 100vh; /* Adjusted height to fill the screen */
   width: 100%;
   overflow: hidden; /* Hide overflow to prevent scrolling beyond the main content */
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
 }
 
 /* Sections */
 section {
-  height: 100vh; /* Adjusted height to fill the screen */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,11 +29,10 @@ section {
 /* Slogan Container */
 .slogan-container {
   text-align: center;
-  background-color: #fff;
 }
 
 .slogan-container h3 {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 600;
   color: #000;
   opacity: 0;
@@ -55,12 +57,14 @@ section {
 
 /* Form Styles */
 .form-container {
-  width: 80%;
-  max-width: 400px;
+  width: 90%; /* Adjusted width for responsiveness */
+  max-width: 600px;
+  margin: 0 auto; /* Center the form horizontally */
   padding: 30px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White background */
+  border-radius: 15px; /* Increased border radius for smoother edges */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly increased box shadow for depth */
+  animation: fadeInUp 1s ease forwards;
 }
 
 .subtext {
@@ -86,22 +90,25 @@ select {
 input[type='text']:focus,
 input[type='password']:focus,
 select:focus {
-  border-color: #007bff;
+  border-color: #ee7205;
   outline: none;
 }
 
 input[type='submit'] {
   padding: 12px 20px;
-  background: linear-gradient(to right, #f47a1a, #ffcd73);
+  background-color: #000; /* Use the provided color */
   color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.5s ease,
+  transform 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95); /* Added cool transition and animation */
 }
 
 input[type='submit']:hover {
-  background: linear-gradient(to right, #ffcd73, #f47a1a);
+  background-color: #ee7205; /* Darken the color on hover */
+  transform: scale(1.05); /* Slightly increase the size on hover */
 }
 
 /* Social Buttons */
@@ -119,7 +126,11 @@ input[type='submit']:hover {
   z-index: 1000;
 }
 
-.custom-shape-divider-top-1710440358 {
+.itsLearning {
+  color: #ee7205;
+}
+
+.custom-shape-divider-top-1710445967 {
   position: absolute;
   top: 0;
   left: 0;
@@ -129,35 +140,13 @@ input[type='submit']:hover {
   transform: rotate(180deg);
 }
 
-.custom-shape-divider-top-1710440358 svg {
+.custom-shape-divider-top-1710445967 svg {
   position: relative;
   display: block;
-  width: calc(100% + 1.3px);
-  height: 286px;
-  transform: rotateY(180deg);
+  width: calc(132% + 1.3px);
+  height: 181px;
 }
 
-.custom-shape-divider-top-1710440358 .shape-fill {
-  fill: #ee7205;
-}
-
-.custom-shape-divider-bottom-1710440684 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-bottom-1710440684 svg {
-  position: relative;
-  display: block;
-  width: calc(105% + 1.3px);
-  height: 109px;
-  transform: rotateY(180deg);
-}
-
-.custom-shape-divider-bottom-1710440684 .shape-fill {
+.custom-shape-divider-top-1710445967 .shape-fill {
   fill: #ee7205;
 }
