@@ -1,83 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TurboTrack</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles/index_style.css') }}"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <main>
-      <div class="custom-shape-divider-top-1710445967">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            class="shape-fill"
-          ></path>
-        </svg>
-      </div>
-      <section class="slogan-container">
-        <h3>
-          Empower Your <span class="itsLearning">itsLearning</span> Experience
-          with TurboTrack!
-        </h3>
-      </section>
-      <section class="form-section">
-        <div class="form-container">
-          <p class="subtext">Enter your itsLearning credentials below:</p>
-          <form action="/login" method="post">
-            <input type="text" name="email" placeholder="Enter your email" />
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-            />
-            <select name="organization_name">
-              <option value="Bahcesehir Ugur Educational Institutions">
-                Bahcesehir Ugur Educational Institutions
-              </option>
-              <option value="Harrastusten Vantaa">Harrastusten Vantaa</option>
-            </select>
-            <input type="submit" value="Access Features" />
-          </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TurboTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link href="{{ url_for('static', filename='styles/index_style.css') }}" rel="stylesheet">
+  <style>
+    /* Custom style for itsLearning text */
+    .itsLearning-text {
+      color: #ee7205; /* Adjust color as needed */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-heading text-xxl">
+          Empower Your
+          <span class="itsLearning-text">itsLearning</span> Experience with
+          TurboTrack!
+        </h1>
+        <p class="hero-text">
+          Our platform fills the gaps of itsLearning by providing instant quiz
+          notifications, one-click document downloads, and visual grade
+          tracking
+        </p>
+        <div class="hero-buttons">
+          <a href="{{ url_for('login') }}" class="btn btn-primary">Get Started</a>
         </div>
-      </section>
-    </main>
-    <div class="bmc-button-container">
-      <script
-        data-name="BMC-Widget"
-        data-cfasync="false"
-        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-        data-id="emircancakmak"
-        data-description="Support me on Buy me a coffee!"
-        data-message=""
-        data-color="#EE7205"
-        data-position="Right"
-        data-x_margin="18"
-        data-y_margin="18"
-      ></script>
+      </div>
+      <img
+        class="hero-img"
+        src="https://illustrations.popsy.co/amber/app-launch.svg"
+        alt="App Launch Illustration"
+      />
     </div>
-    <div class="github-profile">
-      <div
-        class="github-card"
-        data-github="emircancakmakk"
-        data-width="300"
-        data-height="150"
-        data-theme="default"
-      ></div>
-      <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+  </section>
+
+  <!-- Features -->
+  <section class="features bg-primary">
+    <div class="container">
+      <h3 class="features-heading text-xl">Key Features</h3>
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="card">
+          <i class="fas fa-bell feature-icon"></i>
+          <h4 class="feature-heading">Instant Quiz Notifications</h4>
+          <p class="feature-description">
+            Receive instant notifications for quizzes and assignments directly
+            on your device.
+          </p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="card">
+          <i class="fas fa-download feature-icon"></i>
+          <h4 class="feature-heading">One-Click Document Downloads</h4>
+          <p class="feature-description">
+            Easily download course materials with just one click for offline
+            access.
+          </p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="card">
+          <i class="fas fa-chart-line feature-icon"></i>
+          <h4 class="feature-heading">Visual Grade Tracking</h4>
+          <p class="feature-description">
+            Track your grades visually over time to monitor your academic
+            progress.
+          </p>
+        </div>
+      </div>
     </div>
-  </body>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="container-sm">
+      <h3 class="pricing-heading text-xl text-center">Pricing</h3>
+      <p class="pricing-subheading text-md text-center">
+        Choose the plan that best fits your needs. Start with our free plan
+        and upgrade as your requirements grow. No hidden fees, cancel anytime.
+      </p>
+      <div class="pricing-grid">
+        <!-- Pricing Card 1 -->
+        <div class="card bg-light">
+          <div class="pricing-card-header">
+            <h4 class="pricing-heading text-xl">Simple</h4>
+            <p class="pricing-card-subheading">
+              Get started with essential features to enhance your learning experience
+            </p>
+            <p class="pricing-card-price">
+              <span class="text-xl">Free</span>
+              *No credit card needed
+            </p>
+          </div>
+          <div class="pricing-card-body">
+            <ul>
+              <li><i class="fas fa-check"></i> Follow Announcements</li>
+              <li>
+                <i class="fas fa-check"></i> Google Calendar Task Integration
+              </li>
+              <li><i></i></li>
+              <li><i></i></li>
+              <li><i></i></li>
+            </ul>
+            <a href="#" class="btn btn-primary btn-block">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Pricing Card 2 -->
+        <div class="card bg-primary">
+          <div class="pricing-card-header">
+            <h4 class="pricing-heading text-xl">Premium</h4>
+            <p class="pricing-card-subheading">
+              Get access to advanced features for optimizing your learning experience.
+            </p>
+            <p class="pricing-card-price">
+              <span class="text-xl">$1</span>
+            </p>
+          </div>
+          <div class="pricing-card-body">
+            <ul>
+              <li><i class="fas fa-check"></i> Follow Announcements</li>
+              <li><i class="fas fa-check"></i> Google Calendar Task Integration</li>
+              <li><i class="fas fa-check"></i> Instant Quiz Notifications</li>
+              <li><i class="fas fa-check"></i> One-Click Resource Download</li>
+              <li><i class="fas fa-check"></i> Visual Grade Tracking</li>
+            </ul>
+            <a href="#" class="btn btn-white btn-block">Get Started</a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq bg-light">
+    <div class="container-sm">
+      <h3 class="text-xl text-center">Frequently Asked Questions</h3>
+      <div class="faq-content">
+        <div class="faq-group">
+          <div class="faq-group-header">
+            <h4 class="text-md">What is TurboTrack?</h4>
+            <i class="fas fa-minus"></i>
+          </div>
+          <div class="faq-group-body open">
+            <p>
+              TurboTrack is an innovative application designed to complement
+              and enhance the itsLearning platform. It fills the gaps within
+              itsLearning by providing features such as instant quiz
+              notifications, one-click document downloads, and visual grade
+              tracking.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="faq-group-header">
+            <h4 class="text-md">
+              How does TurboTrack complement itsLearning?
+            </h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-group-body">
+            <p>
+              TurboTrack seamlessly integrates with itsLearning, addressing
+              its shortcomings and providing additional functionalities to
+              enhance the overall learning experience. It works alongside
+              itsLearning to provide users with a more comprehensive set of
+              tools and features.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="faq-group-header">
+            <h4 class="text-md">
+              Can I access TurboTrack alongside itsLearning?
+            </h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-group-body">
+            <p>
+              Yes, TurboTrack is designed to work alongside itsLearning. Users
+              can access TurboTrack through its own interface while still
+              utilizing the core functionalities of itsLearning for their
+              educational needs.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="faq-group-header">
+            <h4 class="text-md">
+              What specific gaps does TurboTrack fill within itsLearning?
+            </h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-group-body">
+            <p>
+              TurboTrack focuses on addressing key areas where itsLearning may
+              be lacking, such as instant quiz notifications, streamlined
+              document downloads, and visual grade tracking. These features
+              aim to enhance the efficiency and effectiveness of the learning
+              process.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="faq-group-header">
+            <h4 class="text-md">
+              Is TurboTrack compatible with all features of itsLearning?
+            </h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-group-body">
+            <p>
+              While TurboTrack aims to complement itsLearning, it may not
+              support every feature available on the itsLearning platform.
+              However, TurboTrack focuses on enhancing core functionalities
+              that are essential for a seamless learning experience.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="faq-group-header">
+            <h4 class="text-md">
+              How secure is TurboTrack's integration with itsLearning?
+            </h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-group-body">
+            <p>
+              TurboTrack takes the security and privacy of user data
+              seriously. Our integration with itsLearning adheres to
+              industry-standard security measures to ensure that user
+              information remains safe and protected.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="faq-group-header">
+            <h4 class="text-md">How can I get started with TurboTrack?</h4>
+            <i class="fas fa-minus"></i>
+          </div>
+          <div class="faq-group-body open">
+            <p>
+              Getting started with TurboTrack is simple! Just use your
+              itsLearning credentials to log in to TurboTrack and start
+              enjoying the enhanced features immediately. There's no need for
+              additional sign-ups or passwords – TurboTrack seamlessly
+              integrates with itsLearning for a hassle-free experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-black">
+    <div class="container">
+      <p>Developed by Emircan Cakmak</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
 </html>
