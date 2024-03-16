@@ -1,0 +1,161 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Main Content */
+main {
+  height: 100vh; /* Adjusted height to fill the screen */
+  width: 100%;
+  overflow: hidden; /* Hide overflow to prevent scrolling beyond the main content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+/* Sections */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Slogan Container */
+.slogan-container {
+  text-align: center;
+}
+
+.slogan-container h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-section {
+  background-color: #fff;
+}
+
+/* Form Styles */
+.form-container {
+  width: 90%; /* Adjusted width for responsiveness */
+  max-width: 600px;
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 30px;
+  background-color: #ffffff; /* White background */
+  border-radius: 15px; /* Increased border radius for smoother edges */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly increased box shadow for depth */
+  animation: fadeInUp 1s ease forwards;
+}
+
+.subtext {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='text'],
+input[type='password'],
+select {
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+select:focus {
+  border-color: #ee7205;
+  outline: none;
+}
+
+input[type='submit'] {
+  padding: 12px 20px;
+  background-color: #000; /* Use the provided color */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.5s ease,
+    transform 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95); /* Added cool transition and animation */
+}
+
+input[type='submit']:hover {
+  background-color: #ee7205; /* Darken the color on hover */
+  transform: scale(1.05); /* Slightly increase the size on hover */
+}
+
+/* Social Buttons */
+.github-profile {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.bmc-button-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.itsLearning {
+  color: #ee7205;
+}
+
+.custom-shape-divider-top-1710445967 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1710445967 svg {
+  position: relative;
+  display: block;
+  width: calc(132% + 1.3px);
+  height: 181px;
+}
+
+.custom-shape-divider-top-1710445967 .shape-fill {
+  fill: #ee7205;
+}
+
+#goBackButton {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  padding: 10px;
+  color: #000;
+  text-decoration: none;
+}
