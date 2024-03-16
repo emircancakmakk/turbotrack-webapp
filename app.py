@@ -42,18 +42,22 @@ async def get_tasks():
     except Exception as e:
         return redirect(url_for('error', message=str(e)))
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST', 'GET'])
 async def login():
-    email = request.form.get('email')
-    password = request.form.get('password')
-    organization_name = request.form.get('organization_name')
-    try:
-        session['email'] = email
-        session['password'] = password
-        session['organization_name'] = organization_name
-        return redirect(url_for('get_tasks'))
-    except ValueError as e:
-        return redirect(url_for('error', message=str(e)))
+    if request.method == 'GET':
+        return render_template('login.html')
+    elif request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        organization_name = request.form.get('organization_name')
+        try:
+            session['email'] = email
+            session['password'] = password
+            session['organization_name'] = organization_name
+            return redirect(url_for('get_tasks'))
+        except ValueError as e:
+            return redirect(url_for('error', message=str(e)))
+    
 
 @app.route('/logout', methods=['GET'])
 def logout():
